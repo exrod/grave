@@ -1,0 +1,20 @@
+services:
+  grave:
+    build: .
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    networks:
+      - grave-network
+
+  redis-server:
+    image: "redis:7.2.5"
+    ports:
+      - "127.0.0.1:1337:1337"
+    networks:
+      - grave-network
+
+networks:
+  grave-network:
+    driver: bridge

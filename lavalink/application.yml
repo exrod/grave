@@ -1,0 +1,163 @@
+com.sedmelluq.discord.lavaplayer.tools.ExceptionTools: DEBUG
+dev.lavalink.youtube.http.YoutubeOauth2Handler: INFO
+lavalink:
+    plugins:
+        - dependency: com.github.appujet:jiosaavn-plugin:v0.1.7
+          repository: https://jitpack.io
+        - dependency: com.dunctebot:skybot-lavalink-plugin:1.7.0
+          snapshot: false
+        - dependency: com.github.topi314.lavasearch:lavasearch-plugin:1.0.0
+          snapshot: false
+        - dependency: com.github.topi314.lavasrc:lavasrc-plugin:4.3.0
+          snapshot: false
+        - dependency: com.github.topi314.sponsorblock:sponsorblock-plugin:3.0.1
+          snapshot: false
+        - dependency: dev.lavalink.youtube:youtube-plugin:1.8.3
+          snapshot: false
+    pluginsDir: ./plugins
+    server:
+        bufferDurationMs: 400
+        filters:
+            channelMix: true
+            distortion: true
+            equalizer: true
+            karaoke: true
+            lowPass: true
+            rotation: true
+            timescale: true
+            tremolo: true
+            vibrato: true
+            volume: true
+        frameBufferDurationMs: 5000
+        gc-warnings: true
+        opusEncodingQuality: 10
+        password: gravemusic
+        playerUpdateInterval: 5
+        resamplingQuality: HIGH
+        soundcloudSearchEnabled: true
+        sources:
+            bandcamp: true
+            http: false
+            local: false
+            mixer: true
+            nico: true
+            soundcloud: true
+            twitch: true
+            vimeo: true
+            youtube: false
+        trackStuckThresholdMs: 10000
+        useSeekGhosting: true
+        youtubePlaylistLoadLimit: 6
+        youtubeSearchEnabled: true
+lavalink.server.io.SocketContext: TRACE
+level: Set this to DEBUG to enable more detailed logging. Please note that this will log probably spam your console.
+logging: null
+metrics:
+    prometheus:
+        enabled: false
+        endpoint: /metrics
+plugins:
+    dunctebot:
+        sources:
+            clypit: true
+            getyarn: true
+            mixcloud: true
+            ocremix: true
+            pornhub: true
+            reddit: true
+            soundgasm: true
+            tiktok: true
+            tts: true
+        ttsLanguage: en-US
+    jiosaavn:
+        apiURL: https://saavn.dev/api
+    lavasrc:
+        applemusic:
+            albumLoadLimit: 6
+            countryCode: IN
+            keyID: your key id
+            mediaAPIToken: your apple music api token
+            musicKitKey: |
+                -----BEGIN PRIVATE KEY-----
+                your key
+                -----END PRIVATE KEY-----
+            playlistLoadLimit: 6
+            teamID: your team id
+        deezer:
+            masterDecryptionKey: your master decryption key
+        flowerytts:
+            audioFormat: mp3
+            silence: 0
+            speed: 1
+            translate: false
+            voice: default voice
+        jiosaavn:
+            albumLoadLimit: 1
+            playlistLoadLimit: 10
+        lyrics-sources:
+            deezer: true
+            spotify: true
+            yandexmusic: true
+            youtube: true
+        providers:
+            - ytsearch:"%ISRC%"
+            - ytsearch:%QUERY%
+        sources:
+            applemusic: false
+            deezer: true
+            flowerytts: true
+            spotify: true
+            yandexmusic: true
+            youtube: true
+        spotify:
+            albumLoadLimit: 1
+            clientId: 2ba7a93c96fa407e986f5ae82b611eea
+            clientSecret: 49d7bf43951f413c8ee1a8aece661111
+            countryCode: IN
+            localFiles: true
+            playlistLoadLimit: 10
+            spDc: your sp dc cookie
+        yandexmusic:
+            accessToken: your access token
+            albumLoadLimit: 1
+            artistLoadLimit: 1
+            playlistLoadLimit: 1
+        youtube:
+            countryCode: IN
+    youtube:
+        allowDirectPlaylistIds: true
+        allowDirectVideoIds: true
+        allowSearch: true
+        clients:
+            - WEB
+            - WEBEMBEDDED
+            - IOS
+            - MUSIC
+            - ANDROID_LITE
+            - MEDIA_CONNECT
+            - TVHTML5EMBEDDED
+            - ANDROID_TESTSUITE
+        enabled: true
+        clientOptions:
+            WEB:
+                playback: false
+                videoLoading: false # Disables loading of videos for this client. A client may still be used for playback even if this is set to 'false'.
+            TVHTML5EMBEDDED:
+                playlistLoading: false # Disables loading of playlists and mixes.
+                searching: false # Disables the ability to search for videos.
+        oauth:
+            enabled: true
+            refreshToken: "1//098nq46_BlPs0CgYIARAAGAkSNwF-L9IrzNFFC5kv1pc2cpL71harnaeCXJ3mAUpwVvI7BfPQRXRofNJT4YQd9t_9nGq1Z-p2Zgc"
+
+            skipInitialization: false
+        root: INFO
+sentry:
+    dsn: ""
+    environment: ""
+server:
+    address: 0.0.0.0
+    http2:
+        enabled: false
+    port: 2030
+server-ip: 0.0.0.0
+server-port: 2030

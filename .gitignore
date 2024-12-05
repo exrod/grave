@@ -1,0 +1,10 @@
+node_modules
+config.json
+logs
+dist
+.idea
+.env/*
+env/*
+.env
+.vscode
+/.env

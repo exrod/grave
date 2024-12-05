@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Guilds {
+  id              String            @id @map("_id")
+  guildId         String
+  setupEnabled    Boolean           @default(false)
+  isBlacklisted   Boolean           @default(false)
+  prefix          String
+  premium         Boolean           @default(false)
+  vc247           Boolean           @default(false)
+  subscription    subscriptions[]
+  ignoredChannels ignoredChannels[]
+}
+
+model ignoredChannels {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  channelId String
+  guildId   String
+  Guild     Guilds? @relation(fields: [guildId], references: [id])
+}
+
+model users {
+  id               String          @id @default(uuid()) @map("_id")
+  userId           String
+  isBlacklisted    Boolean         @default(false)
+  activeSubscriber Boolean         @default(true)
+  subscriptions    subscriptions[]
+}
+
+model subscriptions {
+  id        String    @id @default(uuid()) @map("_id")
+  code      String
+  createdAt DateTime  @default(now())
+  activated Boolean   @default(false)
+  endingAt  DateTime?
+  users     users?    @relation(fields: [userId], references: [id])
+  userId    String?
+  Guilds    Guilds?   @relation(fields: [guildsId], references: [id])
+  guildsId  String?
+}
+
+model likedSongs {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String
+  url    String
+  songId String
+  title  String
+  artist String
+  album  String @default("Unknown")
+}
+
+model Song {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  playlistId String   @db.ObjectId
+  userId     String
+  songId     String
+  url        String
+  title      String
+  artist     String
+  album      String?  @default("Unknown")
+  playlist   Playlist @relation(fields: [playlistId], references: [id], name: "playList")
+}
+
+model Playlist {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String
+  name      String
+  songs     Song[]   @relation("playList")
+}
+
+model MusicPanel {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  guildId   String
+  channelId String
+  messageId String
+}
+
+model afk {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+  reason String
+}

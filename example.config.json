@@ -1,0 +1,20 @@
+{
+  "owner_ids": [],
+  "colors": {
+    "default": "0x2b2d31",
+    "success": "0xd3e7f3",
+    "error": "0xd3e7f3",
+    "warning": "0xd3e7f3"
+  },
+  "emojies": {
+    "success": "",
+    "error": "",
+    "warning": ""
+  },
+  "loggers": {
+    "nodelog": "",
+    "player": "",
+    "guild": "",
+    "command": ""
+  }
+}
