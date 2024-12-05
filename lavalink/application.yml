@@ -111,6 +111,7 @@ plugins:
             youtube: true
         spotify:
             albumLoadLimit: 1
+            # these are expired make a new one
             clientId: 2ba7a93c96fa407e986f5ae82b611eea
             clientSecret: 49d7bf43951f413c8ee1a8aece661111
             countryCode: IN
@@ -147,6 +148,7 @@ plugins:
                 searching: false # Disables the ability to search for videos.
         oauth:
             enabled: true
+            # this is expired make a new one 
             refreshToken: "1//098nq46_BlPs0CgYIARAAGAkSNwF-L9IrzNFFC5kv1pc2cpL71harnaeCXJ3mAUpwVvI7BfPQRXRofNJT4YQd9t_9nGq1Z-p2Zgc"
 
             skipInitialization: false
