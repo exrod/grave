@@ -92,8 +92,7 @@ For support, join our [Discord](https://brogot.space/) or contact us via email a
 We welcome contributions!
 
 # Credits
-This code was developed by developers of Cemetery Studios, Some mentions 
-@samarth3301 @drexyop @ ofc me 
+This code was developed by developers of Cemetery Studios, No credits to anyone
 
 # License
 This project is licensed under the Apache License. See the LICENSE file for details.
